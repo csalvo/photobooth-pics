@@ -15,15 +15,15 @@
 
     <script type="text/javascript">
       // Client ID and API key from the Developer Console
-      var CLIENT_ID = 'CLIENTID';
-      var API_KEY = 'APIKEY';
+      var CLIENT_ID = 'CLIENT_ID';
+      var API_KEY = 'API_KEY';
 
       // Array of API discovery doc URLs for APIs used by the quickstart
       var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/drive/v3/rest"];
 
       // Authorization scopes required by the API; multiple scopes can be
       // included, separated by spaces.
-      var SCOPES = 'https://www.googleapis.com/auth/drive.photos.readonly';
+      var SCOPES = 'https://www.googleapis.com/auth/drive';
 
       var authorizeButton = document.getElementById('authorize-button');
       var signoutButton = document.getElementById('signout-button');
@@ -91,10 +91,11 @@
        *
        * @param {string} message Text to be placed in pre element.
        */
-      function appendPre(message) {
+      function appendImg(message) {
         var pre = document.getElementById('content');
-        var textContent = document.createTextNode(message + '\n');
-        pre.appendChild(textContent);
+        image = "<img src='"
+        imageclose = "'>"
+        pre.innerHTML += image + message + imageclose;
       }
 
       /**
@@ -105,19 +106,20 @@
           'pageSize': 10,
           'fields': "nextPageToken, files(id, name)"
         }).then(function(response) {
+          console.log(response)
           var files = response.result.files;
           if (files && files.length > 0) {
             for (var i = 0; i < files.length; i++) {
               var file = files[i];
               console.log(file)
               gapi.client.drive.files.get({
-                'fileId': file.id
+                'fileId': file.id,
+                'fields': 'webContentLink'
               }).then(function(response){
-                console.log(response)
+              appendImg(response.result.webContentLink)
               })
             }
           } else {
-            appendPre('No files found.');
           }
         });
       }
