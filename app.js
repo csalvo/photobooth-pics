@@ -1,6 +1,6 @@
 // Client ID and API key from the Developer Console
-var CLIENT_ID = 'CLIENT_ID';
-var API_KEY = 'API_KEY';
+var CLIENT_ID = '101392071766-uenra2252udridl18nivu9t4fb2fdgaq.apps.googleusercontent.com';
+var API_KEY = 'AIzaSyAtRBP64qEyrork_npJFqyYjrMuhm3i2PM';
 
 // Array of API discovery doc URLs for APIs used by the quickstart
 var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/drive/v3/rest"];
@@ -72,18 +72,11 @@ function handleSignoutClick(event) {
 /**
  * Append returned pictures to the page
  */
-function appendImg(text = "", pic) {
-     pre = document.getElementById('content');
-
-    if (!text) {
-        image = "<img src='"
-        imageclose = "'>"
-        pre.innerHTML += image + pic + imageclose;
-    } else {
-        pre.innerHTML += '<p>No pictures yet</p>';
-    }
-
-
+function appendImg(pic) {
+    pre = document.getElementById('content');
+    image = "<img class='pic' src='"
+    imageclose = "'>"
+    pre.innerHTML += image + pic + imageclose;
 }
 
 /**
@@ -108,8 +101,6 @@ function listFiles() {
                     appendImg(response.result.webContentLink)
                 })
             }
-        } else {
-            appendImg('No pics yet', "text")
-        }
+        } 
     });
 };
