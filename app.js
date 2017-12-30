@@ -101,6 +101,6 @@ function listFiles() {
                     appendImg(response.result.webContentLink)
                 })
             }
-        } 
+        }
     });
 };
