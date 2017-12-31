@@ -1,4 +1,46 @@
-.pic{
-    max-width: 200px;
-    height: 150px;
+.pic {
+    max-width: 300px;
+    height: 200px;
+    margin: 20px;
 }
+
+#content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 80%;
+}
+
+
+#container {
+    display: flex;
+    justify-content: center;
+    z-index: 1
+}
+
+#text {
+	font-size: 40px;
+}
+
+#year {
+	font-size: 35px;
+}
+
+h2 {
+	color: white;
+	font-family: Sofia;
+}
+
+#title-container, #top, #bottom, #text, #year {
+	display: flex;
+	justify-content: center;
+}
+
+body {
+	background-image: url('https://static.tumblr.com/03fbbc566b081016810402488936fbae/pqpk3dn/MRSmlzpj3/tumblr_static_bg3.png');
+}
+
+#bottom {
+	margin: 20px;
+}
+
