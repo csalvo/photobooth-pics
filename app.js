@@ -75,9 +75,8 @@ function handleSignoutClick(event) {
 function appendImg(pic) {
     pre = document.getElementById('content');
     image = "<img class='pic' src='"
-    imageLink = "' target='_blank' href='"
     imageclose = "'>"
-    pre.innerHTML += image + pic + imageLink + pic + imageclose;
+    pre.innerHTML += image + pic + imageclose;
 }
 
 /**
